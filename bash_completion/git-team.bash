@@ -73,6 +73,7 @@ _git_team() {
 	esac
 }
 
+# TODO: Stop looking for git-authors but extract function for co-author searching/preparation for LDAP completion
 __git_team_coauthor_completion() {
 	if [ $(/usr/bin/env git rev-parse --is-inside-work-tree 2>/dev/null) ]; then
 		if [[ $(command -v git-authors) ]]; then
@@ -105,3 +106,24 @@ __git_team_coauthor_completion() {
 		COMPREPLY=()
 	fi
 }
+
+# TODO: Make use of this improved completion functionality
+# _tm_completions()
+# {
+       # if [ "${#COMP_WORDS[@]}" != "2" ]; then
+               # return
+       # fi
+
+       # local sessions=$(tmux ls | awk -F ":" '{ print $1}' | xargs)
+       # local suggestions=($(compgen -W "$sessions" -- "${COMP_WORDS[1]}"))
+
+       # if [ "${#suggestions[@]}" == "1" ]; then
+               # local session=$(echo ${suggestions[0]/%\ */})
+               # COMPREPLY=("$session")
+       # else
+               # COMPREPLY=("${suggestions[@]}")
+       # fi
+# }
+
+# complete -F _tm_completions tm
+
