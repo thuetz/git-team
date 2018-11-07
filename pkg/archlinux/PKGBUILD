@@ -1,0 +1,17 @@
+# Maintainer: Tim Hütz <tim@huetz.biz>
+
+pkgname='git-team'
+pkgdesc='Commit template provisioning with co-authors'
+pkgver='0.3.0'
+pkgrel='1'
+arch=('i686' 'x86_64')
+url='https://github.com/hekmekk/git-team'
+license=('MIT')
+depends=('go')
+makedepends=('git')
+PKGEXT='.pkg.tar.gz'
+
+package() {
+  cd "$srcdir"
+  cd "$pkgdir"
+}
